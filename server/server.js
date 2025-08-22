@@ -12,11 +12,12 @@ const app = express();
 
 
 app.use(express.json());
-var corsOptions = {
-  origin: "https://ai-saas-appclient.onrender.com/"
- 
-}
-app.use(cors());
+
+app.use(cors({
+  origin: "https://ai-saas-appclient.onrender.com",
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  credentials: true
+}));
 await connectDB()
 app.use('/api/user', userRouter); 
 app.use('/api/image',imageRouter);
