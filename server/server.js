@@ -18,6 +18,7 @@ app.use(cors({
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   credentials: true
 }));
+app.options("*", cors());
 await connectDB()
 app.use('/api/user', userRouter); 
 app.use('/api/image',imageRouter);
