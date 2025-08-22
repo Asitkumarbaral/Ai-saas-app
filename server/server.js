@@ -12,6 +12,10 @@ const app = express();
 
 
 app.use(express.json());
+var corsOptions = {
+  origin: "https://ai-saas-appclient.onrender.com/"
+ 
+}
 app.use(cors());
 await connectDB()
 app.use('/api/user', userRouter); 
